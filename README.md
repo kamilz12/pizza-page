@@ -1,5 +1,6 @@
 # Pizzeria Stella
 Projekt Fetch API to prosta aplikacja webowa, która wykorzystuje interfejs Fetch API do pobierania plików tekstowych z serwera i wyświetlania ich w elemencie na stronie internetowej.
+DEMO: https://kamilz12.github.io/pizza-website/
 
 ## Wymagania
 
