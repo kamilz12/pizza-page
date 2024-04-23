@@ -18,7 +18,11 @@ Do uruchomienia aplikacji potrzebujesz serwera Apache.
 3. **Uruchomienie aplikacji:**
     - Uruchom przeglądarkę internetową i przejdź do lokalnego adresu serwera Apache, gdzie znajduje się projekt.
 4. **Poprawne działanie map**
-    - Aby poprawnie działy mapy należy posiadać swój własny klucz do JavaScript API (docs: https://developers.google.com/maps/documentation/javascript)
+    - Aby poprawnie działy mapy należy posiadać swój własny klucz do JavaScript API (docs: https://developers.google.com/maps/documentation/javascript) w pliku kontakt.html podstawiając twój klucz za YOUR API KEY
+```
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=places&callback=initMap"></script>
+```
+
 
 ## Instrukcje
 
