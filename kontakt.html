@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Pizza Stella</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!-- Biblioteka Bootstrap -->
+   <link href="css/style.css" rel="stylesheet"> <!--Styl CSS-->
+   <link href="css/map.css" rel="stylesheet"> <!--Styl CSS dla mapy-->
+   <script async
+      src="https://maps.googleapis.com/maps/api/js?key=keyAPI&loading=async&libraries=places&callback=initMap"></script>
+   <!--API GOOGLE MAPS JAVASCRIPT Z kluczem podanym w linku-->
+   <script src="js/map.js"></script>
+   <!--Skrypt .js obsługujący mapę, działa to w ten sposób, że pobierana jest nasza lokalizacja następnie renderowana jest trasa do punktu na Politechnice Lubelskiej-->
+</head>
+
+<body class="d-flex flex-column min-vh-100 ">
+   <header>
+      <!--Znacznik h1 z klasą site-heading oraz klasami bootstrap: text-center(wyśrodkowanie tekstu), -->
+      <h1 class="site-heading text-center d-none d-lg-block">
+         <span class="site-heading-upper mb-3">Najlepsza pizza w mieście</span>
+         <span class="site-heading-lower">Stella Pizzeria</span>
+      </h1>
+      <!--Bootstrapowa nawigacja wraz z logiem pizzerii przekierowywująca do odpowiednich stron, navbar-expand-lg zamienia menu w "hamburgera" styl nawigacji jasny-->
+      <!--Z wykorzystaniem https://getbootstrap.com/docs/5.3/components/navbar/-->
+      <nav class="navbar navbar-expand-lg navbar-light">
+         <div class="container">
+            <!--Znacznik a z klasą navbar-brand przekierowujący do strony głównej z logiem pizzerii-->
+            <a class="navbar-brand" href="index.html"><img src="assets/pixabay/logo.webp" alt="logo"></a>
+            <!--Przycisk "hamburgera" z klasą navbar-toggler, który pozwala na rozwinięcie menu na urządzeniach mobilnych-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <!--Znacznik ul z klasą navbar-nav oraz center, aby elementy były wyśrodkowane-->
+               <ul class="navbar-nav center">
+                  <!--Znacznik li z znacznikiem a o klasie nav-link przekierowujący do odpowiednich stron-->
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Strona Główna</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="zamowienie.html">Zamów pizzę!</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="info.html">O nas</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="kontakt.html">Kontakt</a>
+                  </li>
+               </ul>
+               <!--Przycisk z klasą yellow-button, który po kliknięciu otwiera okno modalne z menu, zawartość modala znajduje się na dole pliku-->
+               <button type="button" class=" yellow-button" id="menuButton" data-bs-toggle="modal"
+                  data-bs-target="#myModal">
+                  Menu
+               </button>
+            </div>
+         </div>
+      </nav>
+   </header>
+   <div id="content">
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <div class="col mx-auto">
+                  <div class="text-center">
+                     <h2 class="section-heading mb-4"><span class="section-heading-upper">Znajdź nas na
+                           mieście!</span>
+                     </h2>
+                     <h2 class="section-heading mb-4"><span class="section-heading-lower">Stella Pizzeria</span>
+                     </h2>
+                  </div>
+                  <p>Zapraszamy do zamówień w naszej pizzerii. Jesteśmy otwarci codziennie od
+                     10:00 do 22:00. Znajdziesz nas przy ulicy Nadbystrzyckiej 36B w Lublinie.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <div class="col mx-auto">
+                  <h2 class="section-heading"><span class="section-heading-upper">Zadzwoń do nas!</span></h2>
+                  <p class="mb-0">Zadzwoń pod numer: 123 456 789</p>
+                  <p class="mb-0">Adres e-mail: s99752@pollub-edu.pl</p>
+                  <p class="mt-5 ">Poniżej możesz zobaczyć jak do nas trafić</p>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--Tutaj jest wyświetlana mapa załadowana z pliku map.js, wymaga ona podania przez użytkownika lokalizacji, jeżeli użytkownik nie zezwoli to pokazuje lokalizację pizzeri-->
+      <div id="map"></div>
+   </div>
+   <footer class="footer text-faded text-center py-5 footer mt-auto">
+      <div class="container">
+         <p class="mb-0">Copyright &copy;Kamil Ziółkowski 2024</p>
+      </div>
+   </footer>
+   <div class="modal fade" id="myModal" tabindex="-1">
+      <!--Znacznik div z klasą modal-dialog oraz modal-md, który zawiera w sobie modal-content-->
+      <!--Modal to okno, które pokazuje się na ekranie, kiedy użytkownik klinie w przycisk "Menu" znajdujący się na górze strony-->
+      <!--https://getbootstrap.com/docs/5.3/components/modal/-->
+      <div class="modal-dialog modal-md">
+         <div class="modal-content">
+            <!--Nagłówek modala-->
+            <div class="modal-header">
+               <!--Znacznik h5 z klasą określającą tytuł modala-->
+               <h5 class="modal-title">Menu</h5>
+               <!--Przycisk 'X' służący do zamknięcia modala-->
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!--Ciało modala-->
+            <div class="modal-body">
+               <!--Tabela w modalu, która wyświetla menu-->
+               <div class="row">
+                  <!--Kolumna z menu pizzy col-md służy do responzywności strony-->
+                  <div class="col-md">
+                     <h3>Pizze:</h3>
+                     <ul class="list-group">
+                        <li class="list-group-item">Margherita - Sos pomidorowy, mozzarella,
+                           bazylia - 20 zł
+                        </li>
+                        <li class="list-group-item">Capriciosa - Sos pomidorowy, mozzarella,
+                           szynka, pieczarki, oliwki - 25 zł
+                        </li>
+                        <li class="list-group-item">Hawajska - Sos pomidorowy, mozzarella,
+                           szynka, ananas - 22 zł
+                        </li>
+                        <li class="list-group-item">Pepperoni - Sos pomidorowy, mozzarella,
+                           pepperoni - 23 zł
+                        </li>
+                        <li class="list-group-item">Vegetariana - Sos pomidorowy,
+                           mozzarella, warzywa sezonowe - 24 zł
+                        </li>
+                        <li class="list-group-item">Quattro Stagioni - Sos pomidorowy,
+                           mozzarella, szynka, pieczarki, karczochy, oliwki - 28 zł
+                        </li>
+                        <li class="list-group-item">Diavola - Sos pomidorowy, mozzarella,
+                           pepperoni, papryczki jalapeno - 26 zł
+                        </li>
+                        <li class="list-group-item">Fungi - Sos pomidorowy, mozzarella,
+                           pieczarki - 21 zł
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+
+            <!--Stopka modala z przyciskiem Close-->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

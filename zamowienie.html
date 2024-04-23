@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Pizza Stella</title>
+   <!--Biblioteka Bootstrap -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   <!--Arkusze stylów-->
+   <link href="css/style.css" rel="stylesheet">
+   <link href="css/order.css" rel="stylesheet">
+   <!--Plik .js obsługujący formularze, walidację oraz wyświetlenie informacji o zamówieniu-->
+   <script src="js/order.js"></script>
+</head>
+<!--Dzięki temu stopka będzie układać się na dole strony dzięki display: flex oraz min-vh-100 i układaniu obiektów typu flex w kolumanch-->
+
+<body class="d-flex flex-column min-vh-100 ">
+   <header>
+      <!--Znacznik h1 z klasą site-heading oraz klasami bootstrap: text-center(wyśrodkowanie tekstu), główny napis na stronie -->
+      <h1 class="site-heading text-center d-none d-lg-block">
+         <span class="site-heading-upper mb-3">Najlepsza pizza w mieście</span>
+         <span class="site-heading-lower">Stella Pizzeria</span>
+      </h1>
+      <!--Bootstrapowa nawigacja wraz z logiem pizzerii przekierowywująca do odpowiednich stron, navbar-expand-lg zamienia menu w "hamburgera" styl nawigacji jasny-->
+      <!--Z wykorzystaniem https://getbootstrap.com/docs/5.3/components/navbar/-->
+      <nav class="navbar navbar-expand-lg navbar-light">
+         <div class="container">
+            <!--Znacznik a z klasą navbar-brand przekierowujący do strony głównej z logiem pizzerii-->
+            <a class="navbar-brand" href="index.html"><img src="assets/pixabay/logo.webp" alt="logo"></a>
+            <!--Przycisk "hamburgera" z klasą navbar-toggler, który pozwala na rozwinięcie menu na urządzeniach mobilnych-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--Klasa .navbar-toggler jest wykorzystywana w połączeniu z naszym wtyczką do zwijania elementów (collapse plugin) oraz innymi zachowaniami przełączania nawigacji.-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <!--Znacznik ul z klasą navbar-nav oraz center, aby elementy były wyśrodkowane-->
+               <ul class="navbar-nav center">
+                  <!--Znacznik li z znacznikiem a o klasie nav-link przekierowujący do odpowiednich stron-->
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Strona Główna</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="zamowienie.html">Zamów pizzę!</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="info.html">O nas</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="kontakt.html">Kontakt</a>
+                  </li>
+               </ul>
+               <!--Przycisk z klasą yellow-button, który po kliknięciu otwiera okno modalne z menu, zawartość modala znajduje się na dole pliku-->
+               <button type="button" class=" yellow-button" id="menuButton" data-bs-toggle="modal"
+                  data-bs-target="#myModal">
+                  Menu
+               </button>
+            </div>
+         </div>
+      </nav>
+   </header>
+   <div id="content">
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <div class="col mx-auto"> <!--mx-auto centruje diva na środku strony horyzontalnie-->
+                  <h2 class="section-heading mb-4"> <!--Nagłówek sekcji-->
+                     <span class="section-heading-lower">Złóż zamówienie</span>
+                  </h2>
+                  <p class="mb-0">Tutaj możesz złożyć swoje zamówienie</p>
+                  <!--Responzywna tabela z daniami, które chcemy zamówić wybieramy i dodajemy do koszyka-->
+                  <h3 class="mt-5">PIZZA</h3> <!--Nagłówek tabeli-->
+                  <div class="table-responsive"> <!--Klasa table-responsive sprawia, że tabela będzie responsywna-->
+                     <div class="menu">
+                        <table class="table table-striped table-borderless">
+                           <!--Klasa table-striped dodaje paski do tabeli, table-borderless usuwa obramowanie-->
+                           <tr> <!--Wiersz tabeli-->
+                              <th scope="col" class="menu-header">L.p.</th> <!--Nagłówek kolumny tabeli-->
+                              <th scope="col" class="menu-header">Nazwa pizzy</th> <!--Nagłówek kolumny tabeli-->
+                              <th scope="col" class="menu-header">Składniki</th> <!--Nagłówek kolumny tabeli-->
+                              <th scope="col" class="menu-header">Cena</th> <!--Nagłówek kolumny tabeli-->
+                              <th scope="col" class="menu-header">Dodaj do koszyka</th> <!--Nagłówek kolumny tabeli-->
+                           </tr>
+                           <tbody>
+                              <tr>
+                                 <th scope="row">1</th> <!--Nagłówek wiersza tabeli-->
+                                 <td>Margherita</td> <!--Dane w tabeli-->
+                                 <td>sos pomidorowy, mozzarella, bazylia </td>
+                                 <td>20zł</td>
+                                 <td><button
+                                       onclick="addProduct('Margherita', 'sos pomidorowy, mozzarella, bazylia', 20)"
+                                       class="add-product">Dodaj do koszyka</button></td>
+                                 <!--Przycisk dodający produkt do koszyka-->
+                              </tr>
+                              <!--Analogicznie dla pozostałych produktów z koszyka-->
+                              <tr>
+                                 <th scope="row">2</th>
+                                 <td class="nazwa">Capriciosa</td>
+                                 <td id="skladniki"> sos pomidorowy, mozzarella, szynka, pieczarki, oliwki
+                                 </td>
+                                 <td id="cena">25zł</td>
+                                 <td><button
+                                       onclick="addProduct('Capriciosa','sos pomidorowy, mozzarella, szynka, pieczarki, oliwki',25)"
+                                       class="add-product">Dodaj do koszyka</button></td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">3</th>
+                                 <td>Hawajska</td>
+                                 <td> sos pomidorowy, mozzarella, szynka, ananas </td>
+                                 <td>22zł</td>
+                                 <td><button
+                                       onclick="addProduct('Hawajska','sos pomidorowy, mozzarella,szynka, ananas',22)"
+                                       class="add-product">Dodaj do koszyka</button></td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">4</th>
+                                 <td>Pepperoni</td>
+                                 <td> sos pomidorowy, mozzarella, pepperoni </td>
+                                 <td>23zł</td>
+                                 <td><button onclick="addProduct('Pepperoni','sos pomidorowy, mozzarella,pepperoni',23)"
+                                       class="add-product">Dodaj do koszyka</button></td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">5</th>
+                                 <td>Vegetariana</td>
+                                 <td> sos pomidorowy,mozzarella, warzywa sezonowe </td>
+                                 <td>24zł</td>
+                                 <td><button
+                                       onclick="addProduct('Vegetariana', 'sos pomidorowy,mozzarella, warzywa sezonowe',24)"
+                                       class="add-product">Dodaj do
+                                       koszyka</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">6</th>
+                                 <td>Quattro Stagioni</td>
+                                 <td> sos pomidorow, mozzarella, szynka, pieczarki, karczochy, oliwki </td>
+                                 <td>28zł</td>
+                                 <td><button
+                                       onclick="addProduct('Quattro Stagioni','sos pomidorowy,mozzarella, szynka, pieczarki, karczochy, oliwki',28)"
+                                       class="add-product">Dodaj do
+                                       koszyka</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">7</th>
+                                 <td>Diavola</td>
+                                 <td> sos pomidorowy, mozzarella,pepperoni, papryczki jalapeno </td>
+                                 <td>26zł</td>
+                                 <td><button
+                                       onclick="addProduct('Diavola','sos pomidorowy, mozzarella,pepperoni, papryczki jalapeno',26)"
+                                       class="add-product">Dodaj do
+                                       koszyka</button>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <th scope="row">8</th>
+                                 <td>Fungi</td>
+                                 <td> sos pomidorowy, mozzarella, pieczarki </td>
+                                 <td>21zł</td>
+                                 <td><button onclick="addProduct('Fungi','sos pomidorowy, mozzarella, pieczarki',21)"
+                                       class="add-product" value="8">Dodaj do
+                                       koszyka</button>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <!--Koszyk w którym wyświetlane są za pomocą .innerHTML produkty w koszyku w postaci tabeli jeśli one istnieją, jeżeli nie to wyświetlany jest komunikat-->
+                     <div id="koszyk"></div>
+                     <button onclick="clearCart()" id="wyczyscButton" class="yellow-button  btn-primary">Wyczyść
+                        koszyk</button>
+                     <!--Przycisk obsługiwania koszyka, który korzysta z funkcji clearCart służącej do wyczyszczenia koszyka i ukazania jeszcze raz zawartości koszyka-->
+                     <button onclick="showCart()" id="pokazKoszyk" class="yellow-button  btn-primary">Pokaż
+                        koszyk</button>
+                     <!--Wywołuje funkcję showCart, która wyświetla zawartość koszyka, wczytuje ona dane z localStorage zapisane w formacie JSON-->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!--Responsywny formularz podawania danych osobowych w zależności od urządzenia pokazuje <input>(y) w dwóch kolumnach lub jednej-->
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <div class="col mx-auto">
+                  <h2 class="section-heading mb-4"><span class="section-heading-lower">Twoje dane</span></h2>
+                  <p class="mb-0">Podaj swoje dane, abyśmy mogli dostarczyć Ci zamówienie.</p>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <!--col-md-6 pozwala na podzielenie formularza na dwie kolumny na medium-devices (md-6 grid system bootstrapa)-->
+                        <label for="name">Imię: (*)</label>
+                        <!--Etykieta <input> informująca co należy wprowadzić inpucie -->
+                        <input type="text" name="name" id="name" class="form-control" required>
+                        <!--Wejście formularza <input> o klasie form-control required oznacza czy pole jest wymagane czy nie -->
+                        <div id="nameError" class="error"></div>
+                        <!--W przypadku niepoprawnego wprowadzenia danych wyświetlany jest komunikat o tym, że jest to pole niepoprawnie wprowadzone, obsługiwane w pliku order.js-->
+                     </div>
+                     <!--Analogicznie dla kolejnych pól formularza-->
+                     <div class="col-md-6">
+                        <label for="surrname">Nazwisko: (*)</label>
+                        <input type="text" name="surrname" id="surrname" class="form-control" required>
+                        <div id="surrnameError" class="error"></div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <label for="street">Ulica: (*)</label>
+                        <input type="text" name="street" id="street" class="form-control" required>
+                        <div id="streetError" class="error"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="number">Numer domu: (*)</label>
+                        <input type="text" name="number" id="number" class="form-control" required>
+                        <div id="numberError" class="error"></div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <label for="city">Miasto: (*)</label>
+                        <input type="text" name="city" id="city" class="form-control" required>
+                        <div id="cityError" class="error"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="apartment">Numer mieszkania (jeśli istnieje):</label>
+                        <input type="text" name="apartment" id="apartment" class="form-control">
+                        <div id="apartmentError" class="error"></div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <label for="code">Kod pocztowy: (*)</label>
+                        <input type="text" name="code" id="code" class="form-control" placeholder="np. 11-111" required>
+                        <div id="codeError" class="error"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="phone">Numer telefonu: (*)</label>
+                        <input type="text" name="phone" id="phone" class="form-control" placeholder="123 456 789"
+                           required>
+                        <div id="phoneError" class="error">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <label for="comment">Uwagi: (opcjonalne)</label>
+                        <input type="text" name="comment" id="comment" class="form-control" required>
+                        <div id="commentError" class="error">
+                        </div>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="email">E-mail: (*)</label>
+                        <input type="text" name="email" id="email" class="form-control"
+                           placeholder="example@example.com" required>
+                        <div id="emailError" class="error">
+                        </div>
+                     </div>
+                  </div>
+
+                  <!--Wybór metody płatności w menu rozwijanym z opcjami podanymi poniżej : przelew, karta kredytowa, paypal, gotówka przy odbiorze-->
+                  <div class="row">
+                     <div class="col-md-6 mt-4 mb-4">
+                        <label for="payment-method">Metoda płatności:</label>
+                        <select id="payment-method" name="payment-method">
+                           <option value="bankTransfer">Przelew bankowy</option>
+                           <option value="creditCard">Karta kredytowa</option>
+                           <!--Po wybraniu tej opcji wyświetlany jest formularz do wprwowadzenia danych karty kredytowej-->
+                           <option value="paypal">Płatność PayPal</option>
+                           <option value="cash">Płatność gotówką przy odbiorze</option>
+                        </select>
+                     </div>
+                  </div>
+                  <!--W pliku order.js sprawdzany jest wybór opcji select id ="payment-method", jeżeli zostanie wybrana karta kredytowa to wtedy wyświetlany jest formularz do wprowadzenia danych karty-->
+                  <div id="payment-card"></div>
+                  <!--Przycisk służący do przejścia dalej i walidacji i podsumowania zamówienia, wywołuje on funkcję order() z pliku order.js-->
+                  <button onclick="order()" type="submit" class="yellow-button btn-primary mt-3"
+                     id="buttondalej">Przejdź dalej</button>
+                  <div id="info"></div>
+                  <!--W tym div przy poprawnej walidacji formularza wyświetalany jest koszyk oraz dane osobowe wprowadzone wcześniej do zamówienia-->
+               </div>
+            </div>
+         </div>
+      </section>
+   </div>
+   <footer class="footer text-faded text-center py-5 footer mt-auto">
+      <div class="container">
+         <p class="mb-0">Copyright &copy;Kamil Ziółkowski 2024</p>
+      </div>
+   </footer>
+   <div class="modal fade" id="myModal" tabindex="-1">
+      <!--Znacznik div z klasą modal-dialog oraz modal-md, który zawiera w sobie modal-content-->
+      <!--Modal to okno, które pokazuje się na ekranie, kiedy użytkownik klinie w przycisk "Menu" znajdujący się na górze strony-->
+      <!--https://getbootstrap.com/docs/5.3/components/modal/-->
+      <div class="modal-dialog modal-md">
+         <div class="modal-content">
+            <!--Nagłówek modala-->
+            <div class="modal-header">
+               <!--Znacznik h5 z klasą określającą tytuł modala-->
+               <h5 class="modal-title">Menu</h5>
+               <!--Przycisk 'X' służący do zamknięcia modala-->
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!--Ciało modala-->
+            <div class="modal-body">
+               <!--Tabela w modalu, która wyświetla menu-->
+               <div class="row">
+                  <!--Kolumna z menu pizzy col-md służy do responzywności strony-->
+                  <div class="col-md">
+                     <h3>Pizze:</h3>
+                     <!--Lista z menu pizzy-->
+                     <ul class="list-group">
+                        <li class="list-group-item">Margherita - Sos pomidorowy, mozzarella,
+                           bazylia - 20 zł
+                        </li>
+                        <li class="list-group-item">Capriciosa - Sos pomidorowy, mozzarella,
+                           szynka, pieczarki, oliwki - 25 zł
+                        </li>
+                        <li class="list-group-item">Hawajska - Sos pomidorowy, mozzarella,
+                           szynka, ananas - 22 zł
+                        </li>
+                        <li class="list-group-item">Pepperoni - Sos pomidorowy, mozzarella,
+                           pepperoni - 23 zł
+                        </li>
+                        <li class="list-group-item">Vegetariana - Sos pomidorowy,
+                           mozzarella, warzywa sezonowe - 24 zł
+                        </li>
+                        <li class="list-group-item">Quattro Stagioni - Sos pomidorowy,
+                           mozzarella, szynka, pieczarki, karczochy, oliwki - 28 zł
+                        </li>
+                        <li class="list-group-item">Diavola - Sos pomidorowy, mozzarella,
+                           pepperoni, papryczki jalapeno - 26 zł
+                        </li>
+                        <li class="list-group-item">Fungi - Sos pomidorowy, mozzarella,
+                           pieczarki - 21 zł
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+
+            <!--Stopka modala z przyciskiem Close-->
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

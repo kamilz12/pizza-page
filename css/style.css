@@ -1,0 +1,174 @@
+/*Główny napis na stronie w sekcji header*/
+.site-heading {
+    padding-top: 5rem; /*wewnętrzny odstęp od góry diva*/
+    padding-bottom: 5rem; /*wewnętrzny odstęp od dołu diva*/
+    text-transform: uppercase; /*zmiana na wielkie litery*/
+    line-height: 1; /*odstęp między liniami*/
+}
+
+/*Górny nagłówek strony z HTML5*/
+header{
+    border-bottom: 1px solid #baa47b; /*linia na dole headera*/
+    background-color: rgba(0, 0, 0, 0.675); /*kolor tła*/
+
+}
+html{
+    font-size: 13px; /*rozmiar czcionki na całej stronie*/
+}
+
+/*Nagłówek strony, góry napis*/
+.site-heading .site-heading-upper{
+    display: block; /*element układa się na stronie jako element blokowy*/
+    color: #baa47b; /*kolor czcionki*/
+    font-weight: 700; /*grubość czcionki*/
+
+}
+
+/*Nagłówek strony, dolny napis*/
+.site-heading .site-heading-lower{
+    font-size: 2rem; /*rozmiar czcionki*/
+    color: #FFFFFF; /*kolor czcionki*/
+}
+
+/*Znacznik body strony*/
+body{
+    background: url("../assets/pixabay/bg2.jpg") no-repeat center center fixed; /*tło strony z tłem z strony pixabay, nie powtarzające się, wyśrodkowane, nie przesuwające sie wraz z myszka tło*/
+    background-size: cover; /*rozmiar tła, pokrywające - pokrywa całą szerokość i wysokość strony. Dopasowywuje się*/
+    color:rgba(240, 255, 255, 0.911); /*kolor czcionki*/
+    min-height: 100%; /*wysokość strony*/
+
+}
+
+/*Nawigacja strony*/
+
+/*Logo znajdujące się obok nawigacji strony*/
+.navbar-brand img{
+    width: 111px; /*szerokość obrazka*/
+    height: 128px; /*wysokość obrazka*/
+}
+.nav-item{
+    font-size: 1.7rem; /*rozmiar czcionki*/
+    font-weight: 700; /*grubość czcionki*/
+}
+
+/*Element nawigacji, link */
+.nav-item a{
+    color: rgba(240, 255, 255, 0.911); /*kolor czcionki dla linku w nawigacji*/
+}
+
+/*Element nawigacji, link po najechaniu*/
+.nav-item a:hover{
+    color: #baa47b; /*kolor czcionki dla linku w nawigacji po najechaniu myszką*/
+}
+
+/*Element nawigacji, link po kliknięciu*/
+.nav-item a:focus{
+    color:  yellow; /*kolor czcionki dla linku w nawigacji po kliknięciu*/
+}
+
+/*Hamburger icon w nawigacji*/
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.95)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+/*Koniec nawigacji */
+
+/*Zawartość strony*/
+#content{
+    background-color: rgba(46, 40, 40, 0.65);
+    width: 100%; /*szerokość strony*/
+    flex:1; /*Dzięki temu zawartość strony zawsze dochodzi aż do stopki i nie pozostawia wolnej luki, jako iż tło jest nieprzezroczyste pozostawia to lukę, dzięki temu ten element jest rozciągnięty aż do nagłowka nie zależnie od wielkości zawartości*/
+}
+/*Sekcja strony */
+.page-section{
+    padding-top: 3rem; /*wewnętrzny odstęp od góry*/
+    padding-bottom: 2rem; /*wewnętrzny odstęp od dołu*/
+    width: 100%; /*szerokość sekcji*/
+
+}
+
+/*Nagłówek sekcji*/
+.page-section h2{
+    font-size: 2.5rem; /*rozmiar czcionki*/
+    font-weight: 700; /*grubość czcionki*/
+    margin-bottom: 2rem; /*odstęp od dołu*/
+    color: #baa47b; /*kolor czcionki*/
+}
+
+/*Paragraf sekcji*/
+.page-section p{
+    font-size: 1.5rem; /*rozmiar czcionki*/
+    margin-bottom: 2rem; /*odstęp od dołu*/
+}
+
+
+/*Stopka strony*/
+.footer{
+    border-top: 1px solid #baa47b; /*linia na górze stopki*/
+    background-color: rgba(0, 0, 0, 0.675); /*transparentne tło rgba()*/
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/*Modal*/
+/*Nagłówki modala*/
+.modal-body h3{
+    color: #baa47b;
+}
+
+.modal-title{
+    color: black;
+}
+/*Koniec modala*/
+
+/*Przycisk menu do otwarcia modala*/
+#menuButton{
+    float: right; /*przesunięcie przycisku na prawo*/
+    margin-left: 2rem; /*odstęp od lewej strony*/
+    height: 46px; /*wysokość przycisku*/
+
+}
+
+/*Żółty styl przycisku używany często w aplikacji*/
+.yellow-button{
+    background-color: #baa47bc7; /*kolor tła przycisku*/
+    color: white; /*kolor czcionki*/
+    border: none; /*brak obramowania*/ 
+    padding: 10px 20px; /*wewnętrzny odstęp od góry i dołu, lewy i prawy*/
+    border-radius: 20px; /*zaokrąglenie krawędzi*/
+    font-size: 1.5rem; /*rozmiar czcionki*/
+    font-weight: 700; /*grubość czcionki*/
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 1); /*cieniowanie dla safari*/
+    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 1); /*cieniowanie dla mozilla firefox, niektore przeglądarki nie obsługuja cieniowanai starsze wersje i uzywa sie -moz- i -webkit- przed boxshadow*/
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 1); /*cieniowanie dla kazdej przegladarki*/
+}
+
+.yellow-button:active, .yellow-button:hover{
+    background-color: #d09d3f
+}
+
+.carousel-inner{
+    width: 60%; /*szerokość karuzeli*/
+    height: 60%; /*wysokość karuzeli*/
+    margin: 0 auto; /*wyśrodkowanie karuzeli*/
+    -webkit-box-shadow: 0px 0px 13px 2px rgba(186, 164, 123, 1); /*Cieniowanie*/
+    -moz-box-shadow: 0px 0px 13px 2px rgba(186, 164, 123, 1); 
+    box-shadow: 0px 0px 13px 2px rgba(186, 164, 123, 1); 
+}
+
+/*Media Queries dla większej rozdzielczości*/
+@media screen and (max-width: 991px) {
+    /*Przycisk pokazania modala*/
+    #menuButton{
+        margin-left: 0;
+        float: left;
+        margin-top: 10px;
+    }
+
+    .page-section{
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+}
+

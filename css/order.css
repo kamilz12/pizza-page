@@ -1,0 +1,72 @@
+/*Klasa menu w pliku zamowienie.html, jest to menu z mozliwoscia dodania do koszyka*/
+.menu th, .menu td{
+    background-color: rgba(255, 255, 255,0.9); 
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+    font-size: 1.2rem
+}
+
+/*Pole wprowadzania formularzy*/
+.form-control{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*Klasa do wyświetlania informacji o błędnie wprowadzonych danych*/
+.error{
+    color : red; 
+}
+
+/*Przyciski do obsługi koszyka, przesunięte do prawej strony*/
+#wyczyscButton, #pokazKoszyk{
+    float: right;
+    margin-right: 1rem;
+    width: 185px;
+}
+
+/*Media queries wykorzystane w tym przypadku do responsywnego wystylizowania dla urządzeń o określonej szerokości. Dzięki temu możemy rozłożyć odpowiednio elementy w zależności od urządzenia*/
+  @media screen and (max-width: 600px) {
+    .menu table {
+      border: none; /*brak obramowania tabeli*/
+    }
+  
+
+    .menu table tr .menu-header {
+        display: none; /*Usuwa nagłówek tabeli dla zachowania esteycznosci*/
+    }
+    
+    .menu table tr {
+      display: block; /*element układa się na stronie jako element blokowy*/
+      margin-bottom: .625rem; /*odstęp od dołu .rem to jednostka taka, ze mnozy 13px*(0.625) dziedziczone z naglowka html przykladowo*/
+      margin-bottom: 3rem; /*odstęp od dołu*/
+    }
+    
+    /*Kolumny tabeli*/
+    .menu table td,.menu table th{
+      border-bottom: 1px solid #ddd; 
+      display: block; /*element układa się na stronie jako element blokowy*/
+      font-size: .8em; /*rozmiar czcionki*/
+    }
+
+    /*Wyśrodkowanie tekstu w nagłówku tabeli*/
+    .menu table tr th{
+        text-align: center;
+    }
+
+    /*Przycisk w tabeli do dodawania do koszyka*/
+    .menu table button{
+        width: 100%;
+        height: 40px;
+    }
+
+  }
+
+
+  
+/*Media Queries dla większej rozdzielczości (takiej jak np tablet)*/
+  @media screen and (max-width: 991px) {
+        /*Przyciski do obsługi koszyka*/
+        #wyczyscButton, #pokazKoszyk{
+            width: 95%; /*Rozciągnięcie przycisku na całą szerokość strony*/
+            margin-bottom: 2rem;
+        }
+  }

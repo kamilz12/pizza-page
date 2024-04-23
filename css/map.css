@@ -1,0 +1,12 @@
+/*Stylizacja mapy*/
+#map {
+  width: 90%; /*szerokość mapy*/
+  height: 400px; /*wysokość mapy*/
+  margin: 0 auto; /*wyśrodkowanie mapy*/
+  opacity: 95%; /*przezroczystość mapy*/
+  margin-bottom: 20px; /*odstęp od dolu mapy*/
+}
+
+
+
+

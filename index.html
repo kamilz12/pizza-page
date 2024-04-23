@@ -1,0 +1,210 @@
+<!doctype html>
+<!--Znacznik html z językiem polskim-->
+<html lang="pl">
+
+<head>
+   <!--Znacznik meta odpowiadający za kodowanie znaków-->
+   <meta charset="utf-8">
+   <!--Znacznik meta odpowiadający za responsywność strony-->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Pizza Stella</title>
+   <!--Znacznik link odpowiadający za podpięcie arkusza stylów Bootstrapa(biblioteka wykorzystywana na laboratoriach) oraz własnego arkusza stylów-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+   <!--Arkusze stylów-->
+   <link href="css/style.css" rel="stylesheet">
+</head>
+<!--Znacznik body z wykorzystaniem flex-column d-flex oraz min-vh-100, aby stopka zawsze była na dole strony -->
+
+<body class="d-flex flex-column min-vh-100 ">
+   <header>
+      <!--Znacznik h1 z klasą site-heading oraz klasami bootstrap: text-center(wyśrodkowanie tekstu), -->
+      <h1 class="site-heading text-center d-none d-lg-block">
+         <span class="site-heading-upper mb-3">Najlepsza pizza w mieście</span>
+         <span class="site-heading-lower">Stella Pizzeria</span>
+      </h1>
+      <!--Bootstrapowa nawigacja wraz z logiem pizzerii przekierowywująca do odpowiednich stron, navbar-expand-lg zamienia menu w "hamburgera" styl nawigacji jasny-->
+      <!--Z wykorzystaniem https://getbootstrap.com/docs/5.3/components/navbar/-->
+      <nav class="navbar navbar-expand-lg navbar-light">
+         <div class="container">
+            <!--Znacznik a z klasą navbar-brand przekierowujący do strony głównej z logiem pizzerii-->
+            <a class="navbar-brand" href="index.html"><img src="assets/pixabay/logo.webp" alt="logo"></a>
+            <!--Przycisk "hamburgera" z klasą navbar-toggler, który pozwala na rozwinięcie menu na urządzeniach mobilnych-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <!--Znacznik ul z klasą navbar-nav oraz center, aby elementy były wyśrodkowane-->
+               <ul class="navbar-nav center">
+                  <!--Znacznik li z znacznikiem a o klasie nav-link przekierowujący do odpowiednich stron-->
+                  <li class="nav-item">
+                     <a class="nav-link" href="index.html">Strona Główna</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="zamowienie.html">Zamów pizzę!</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="info.html">O nas</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="kontakt.html">Kontakt</a>
+                  </li>
+               </ul>
+               <!--Przycisk z klasą yellow-button, który po kliknięciu otwiera okno modalne z menu, zawartość modala znajduje się na dole pliku-->
+               <button type="button" class=" yellow-button" id="menuButton" data-bs-toggle="modal"
+                  data-bs-target="#myModal">
+                  Menu
+               </button>
+            </div>
+         </div>
+      </nav>
+   </header>
+   <!--Znacznik div o id content, który zawiera sekcje strony-->
+   <div id="content">
+      <!--Znacznik sekcji z klasą page-section oraz kontenerem, który zawiera wiersz z kolumną oraz tekstem-->
+      <section class="page-section">
+         <div class="container">
+            <!--Znacznik wiersza z kolumną, która zawiera tekst-->
+            <div class="row">
+               <div class="col mx-auto">
+                  <!--Znacznik div z klasą text-center-->
+                  <div class="text-center">
+                     <!--Znacznik h2 z klasą section-heading oraz klasami bootstrap: mb-4(odstęp od tekstu)-->
+                     <h2 class="section-heading mb-4"><span class="section-heading-upper">Najlepsza pizza w
+                           mieście</span>
+                     </h2>
+                     <h2 class="section-heading mb-4"><span class="section-heading-lower">Stella Pizzeria</span>
+                     </h2>
+                  </div>
+                  <!--Znacznik p z klasą mb-0(odstęp od tekstu) oraz tekstem-->
+                  <p>Zapraszamy do zamówień w naszej pizzerii. Jesteśmy otwarci codziennie od
+                     10:00 do 22:00. Dostawa gratis od 50zł!
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--Znacnik page-section który zawiera w sobie carousel Bootstrap wykorzystywaną na laboratoriach-->
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <!--Znacznik div z klasą col oraz mx-auto, który wyśrodkowuje elementy-->
+               <div class="col mx-auto">
+                  <!--Znacznik div z klasą text-center-->
+                  <div class="text-center">
+                     <h2 class="section-heading">Poznaj nas bliżej!</h2>
+                  </div>
+                  <!--https://getbootstrap.com/docs/5.3/components/carousel/-->
+                  <!--Znacznik div z klasą carousel slide oraz data-bs-ride="carousel" -->
+                  <div id="carouselMain" class="carousel slide" data-bs-ride="carousel">
+                     <!--Znacznik div z klasą carousel-inner, który zawiera w sobie zdjęcia które będą się przesuwać-->
+                     <div class="carousel-inner">
+                        <!--Aktualnie wyświetlane zdjęcie-->
+                        <div class="carousel-item active">
+                           <img src="assets/pixabay/galeria/carousel/1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <!--Pozostałe zdjęcia-->
+                        <div class="carousel-item">
+                           <img src="assets/pixabay/galeria/carousel/2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                           <img src="assets/pixabay/galeria/carousel/3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="page-section">
+         <div class="container">
+            <div class="row">
+               <div class="col mx-auto">
+                  <div class="text-center">
+                     <h2 class="section-heading"><span class="section-heading-upper">Nasze dania</span>
+                     </h2>
+                  </div>
+                  <p>Witajcie, miłośnicy pysznego jedzenia!
+                     Czy kiedykolwiek marzyłeś o perfekcyjnie przygotowanej pizzy, która rozpływa się w ustach,
+                     pozostawiając po sobie uczucie prawdziwej rozkoszy? Jeśli tak, to właśnie znalazłeś swoje
+                     miejsce! (AI)
+                  </p>
+
+                  <h3 class="mt-2">Zajrzyjcie już dzisiaj do naszego menu!</h3>
+               </div>
+            </div>
+         </div>
+      </section>
+      <div class="modal fade" id="myModal" tabindex="-1">
+         <!--Znacznik div z klasą modal-dialog oraz modal-md, który zawiera w sobie modal-content-->
+         <!--Modal to okno, które pokazuje się na ekranie, kiedy użytkownik klinie w przycisk "Menu" znajdujący się na górze strony-->
+         <!--https://getbootstrap.com/docs/5.3/components/modal/-->
+         <div class="modal-dialog modal-md">
+            <div class="modal-content">
+               <!--Nagłówek modala-->
+               <div class="modal-header">
+                  <!--Znacznik h5 z klasą określającą tytuł modala-->
+                  <h5 class="modal-title">Menu</h5>
+                  <!--Przycisk 'X' służący do zamknięcia modala-->
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <!--Ciało modala-->
+               <div class="modal-body">
+                  <!--Tabela w modalu, która wyświetla menu-->
+                  <div class="row">
+                     <!--Kolumna z menu pizzy col-md służy do responzywności strony-->
+                     <div class="col-md">
+                        <h3>Pizze:</h3>
+                        <ul class="list-group">
+                           <li class="list-group-item">Margherita - Sos pomidorowy, mozzarella,
+                              bazylia - 20 zł
+                           </li>
+                           <li class="list-group-item">Capriciosa - Sos pomidorowy, mozzarella,
+                              szynka, pieczarki, oliwki - 25 zł
+                           </li>
+                           <li class="list-group-item">Hawajska - Sos pomidorowy, mozzarella,
+                              szynka, ananas - 22 zł
+                           </li>
+                           <li class="list-group-item">Pepperoni - Sos pomidorowy, mozzarella,
+                              pepperoni - 23 zł
+                           </li>
+                           <li class="list-group-item">Vegetariana - Sos pomidorowy,
+                              mozzarella, warzywa sezonowe - 24 zł
+                           </li>
+                           <li class="list-group-item">Quattro Stagioni - Sos pomidorowy,
+                              mozzarella, szynka, pieczarki, karczochy, oliwki - 28 zł
+                           </li>
+                           <li class="list-group-item">Diavola - Sos pomidorowy, mozzarella,
+                              pepperoni, papryczki jalapeno - 26 zł
+                           </li>
+                           <li class="list-group-item">Fungi - Sos pomidorowy, mozzarella,
+                              pieczarki - 21 zł
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+
+               <!--Stopka modala z przyciskiem Close-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!--Stopka strony-->
+   <footer class="footer text-faded text-center py-5 footer mt-auto">
+      <div class="container">
+         <p class="mb-0">Copyright &copy;Kamil Ziółkowski 2024</p>
+      </div>
+   </footer>
+   <!--Skrypty Bootstrapa-->
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
