@@ -32,6 +32,7 @@ Projekt wykorzystuje następujące technologie:
 - **Bootstrap**
 - **JavaScript**: 
 - **Fetch API**: Interfejs przeglądarki internetowej do wysyłania i pobierania danych z serwera. (wymagany serwer aby działało asynchroniczne pobiranie tekstów np Apache)
+- **Maps JavaScript API** - API używane do geolokalizacji w projekcie
 
 ## Informacje dodatkowe
 Projekt zakomentowany na potrzeby zajęć na studiach (wymagania dotyczące samodzielnego projektu), wykonany samodzielnie
