@@ -1,5 +1,5 @@
 # Pizzeria Stella
-Projekt Fetch API to prosta aplikacja webowa, która wykorzystuje interfejs Fetch API do pobierania plików tekstowych z serwera i wyświetlania ich w elemencie na stronie internetowej.
+Projekt to strona wykorzystująca bibliotekę Bootstrap do utworzenia strony pizzerii. 
 DEMO: https://kamilz12.github.io/pizza-website/
 
 ## Wymagania
@@ -23,30 +23,18 @@ Do uruchomienia aplikacji potrzebujesz serwera Apache.
     <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&loading=async&libraries=places&callback=initMap"></script>
 ```
 
-
-## Instrukcje
-
-Po uruchomieniu aplikacji:
-
-- Kliknij przycisk "Pobierz informacje", aby pobrać i wyświetlić zawartość pliku "info.txt".
-- Kliknij przycisk "Pobierz aktywności", aby pobrać i wyświetlić zawartość pliku "act.txt".
-- Kliknij przycisk "Pobierz galerię", aby pobrać i wyświetlić zawartość pliku "gal.txt".
-- Kliknij przycisk "Pobierz formularz", aby pobrać i wyświetlić zawartość pliku "form.txt".
-
-
 ## Technologie
 
 Projekt wykorzystuje następujące technologie:
 
-- **HTML5**: Główny język znaczników strukturyzujących treść strony internetowej.
-- **CSS3**: Język kaskadowych arkuszy stylów do stylowania interfejsu użytkownika.
-- **Bootstrap** Biblioteka CSS, rozwijana przez programistów Twittera, wydawana na licencji MIT. Zawiera zestaw przydatnych narzędzi ułatwiających tworzenie interfejsu graficznego stron oraz aplikacji internetowych.
-- **JavaScript**: Język programowania do interakcji użytkownika i komunikacji z serwerem.
-- **Fetch API**: Interfejs przeglądarki internetowej do wysyłania i pobierania danych z serwera.
-- **Apache**: Serwer HTTP wykorzystywany do hostowania aplikacji internetowych.
+- **HTML5**:
+- **CSS3**: 
+- **Bootstrap**
+- **JavaScript**: 
+- **Fetch API**: Interfejs przeglądarki internetowej do wysyłania i pobierania danych z serwera. (wymagany serwer aby działało asynchroniczne pobiranie tekstów np Apache)
 
 ## Informacje dodatkowe
-Projekt wykonany do zaliczenia przedmiotu na studiach
+Projekt zakomentowany na potrzeby zajęć na studiach (wymagania dotyczące samodzielnego projektu), wykonany samodzielnie
 ## Autor
 
 Ten projekt został stworzony przez kamilz12.
